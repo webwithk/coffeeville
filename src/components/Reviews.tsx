@@ -135,4 +135,6 @@ const Reviews = () => {
   );
 };
 
+console.log("REVIEWS DATA: reviews");
+
 export default Reviews;

@@ -122,5 +122,6 @@ const Menu = () => {
     </section>
   );
 };
+console.log("MENU DATA: menuItems");
 
 export default Menu;
