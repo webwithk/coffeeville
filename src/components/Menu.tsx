@@ -22,8 +22,12 @@ const Menu = () => {
       return;
     }
 
-    setMenuItems(data);
+    console.log("MENU DATA:", data);
+
+    setMenuItems(data || []);
     setLoading(false);
+
+    fetchMenuItems();
       
   }},);
 
