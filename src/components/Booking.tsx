@@ -51,7 +51,7 @@ const Booking = () => {
     try {
       const { data, error} = await supabase 
         .from('table_bookings')
-        .insert(formData)
+        .insert([formData])
         .select()
         .single();
 
