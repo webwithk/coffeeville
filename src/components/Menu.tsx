@@ -12,24 +12,28 @@ const Menu = () => {
 
   useEffect(() => {
     const fetchMenuItems = async () => {
+      try{
       const { data, error} = await supabase
         .from('menu_items')
         .select('*');
 
+        console.log("MENU DATA:", data);
+        console.log("MENU ERROR:", error);
+
     if (error) {
-      console.error('Failed to fetch menu items:', error);
-      setLoading(false);
-      return;
+      console.error(error);
     }
 
-    console.log("MENU DATA:", data);
-
     setMenuItems(data || []);
+  } catch (err) {
+    console.error('CATCH ERROR:', err);
+  } finally {
     setLoading(false);
+  }
+    };
 
     fetchMenuItems();
-      
-  }},);
+  }, []);
 
   return (
     <section id="menu" className="py-24 md:py-32 bg-[#F8F5F2] relative overflow-hidden">
